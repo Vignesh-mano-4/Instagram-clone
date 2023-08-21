@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+
+
+void main()
+{
+   runApp(const Myapp());
+}
+class Myapp extends StatelessWidget {
+  const Myapp({super.key});
+
+  @override
+Widget build(BuildContext context)
+  {
+    return MaterialApp(
+      title:'Instagram',
+          theme:ThemeData(
+        primarySwatch:Colors.pink,
+    ),
+    home:const InstagramPost(),
+    );
+  }
+}
+class InstagramPost extends StatelessWidget{
+  const InstagramPost({Key? key}):super(key:key);
+
+  @override
+  Widget build(BuildContext contest){
+    return Scaffold(backgroundColor: Colors.white,
+        appBar:AppBar(
+      title:Text('Instagram',style: TextStyle(fontWeight:FontWeight.bold),),
+    ),
+    body:SingleChildScrollView(
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children:[
+          Padding(padding: const EdgeInsets.all(16.0),
+    child:Row(
+    children:[
+      CircleAvatar(
+    radius:20,
+    backgroundImage:NetworkImage('https://wallpapers.com/images/featured/2ygv7ssy2k0lxlzu.jpg')
+    ),
+    SizedBox(width:16),
+    Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children:[
+        Text('Krish',style:TextStyle(fontWeight:FontWeight.bold,color:Colors.black),),
+        Text('Dwaraka',style:TextStyle(color:Colors.indigo))
+    ],
+    ),
+      Expanded(child: Container(),),
+      IconButton(onPressed: (){}, icon: Icon(Icons.more_vert_sharp, ),color: Colors.black,)
+    ]
+    ),
+    ),
+          Container(height:500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+                  image:NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQZdvRe8tgNkXg5dKNkD3t_1yOwp24hMQjDw&usqp=CAU')
+            )
+          ))
+    ],
+      )
+    ),
+    );
+  }
+}     
